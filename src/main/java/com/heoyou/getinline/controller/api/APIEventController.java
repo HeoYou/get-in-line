@@ -17,7 +17,7 @@ public class APIEventController {
 //        return List.of("event1", "evemt2");
     }
 
-    @PostMapping("/evnets")
+    @PostMapping("/events")
     public Boolean createEvent(){
         throw new GeneralException("장군");
 //        return true;
