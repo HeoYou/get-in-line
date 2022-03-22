@@ -12,8 +12,4 @@ public class BaseController implements ErrorController {
     public String root() {
         return "index";
     }
-    @RequestMapping("/error")
-    public String error() {
-        return "error";
-    }
 }

@@ -1,5 +1,7 @@
 package com.heoyou.getinline.controller.api;
 
+import com.heoyou.getinline.exception.GeneralException;
+import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -9,18 +11,23 @@ import java.util.List;
 public class APIEventController {
 
     @GetMapping("/events")
-    public List<String> getEvents(){
-        return List.of("event1", "evemt2");
+    public List<String> getEvents() throws Exception{
+
+        throw new HttpRequestMethodNotSupportedException("405 에러테스트");
+//        return List.of("event1", "evemt2");
     }
 
     @PostMapping("/evnets")
     public Boolean createEvent(){
-        return true;
+        throw new GeneralException("장군");
+//        return true;
     }
 
     @GetMapping("/events/{eventId}")
     public String getEvent(@PathVariable Integer eventId) {
-        return "event " + eventId;
+
+        throw new RuntimeException("run");
+//        return "event " + eventId;
     }
 
     @PutMapping("/events/{eventId}")
