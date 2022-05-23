@@ -1,6 +1,5 @@
 package com.heoyou.getinline.controller;
 
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -8,12 +7,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class AuthController {
 
     @GetMapping("/login")
-    public String login(){
+    public String login() {
         return "auth/login";
     }
 
     @GetMapping("/sign-up")
-    public String signUp(){
+    public String signUp() {
         return "auth/sign-up";
     }
+
 }

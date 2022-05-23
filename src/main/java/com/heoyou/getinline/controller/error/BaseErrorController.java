@@ -1,4 +1,4 @@
-package com.heoyou.getinline.error;
+package com.heoyou.getinline.controller.error;
 
 import com.heoyou.getinline.constant.ErrorCode;
 import com.heoyou.getinline.dto.APIErrorResponse;
@@ -16,11 +16,11 @@ import java.util.Map;
 @Controller
 public class BaseErrorController implements ErrorController {
 
-    @RequestMapping("/error")
+    @RequestMapping(path = "/error", produces = MediaType.TEXT_HTML_VALUE)
     public ModelAndView errorHtml(HttpServletResponse response) {
-
         HttpStatus status = HttpStatus.valueOf(response.getStatus());
         ErrorCode errorCode = status.is4xxClientError() ? ErrorCode.BAD_REQUEST : ErrorCode.INTERNAL_ERROR;
+
         return new ModelAndView(
                 "error",
                 Map.of(
@@ -32,13 +32,14 @@ public class BaseErrorController implements ErrorController {
         );
     }
 
-    @RequestMapping(path = "/error", produces = MediaType.TEXT_HTML_VALUE)
+    @RequestMapping("/error")
     public ResponseEntity<APIErrorResponse> error(HttpServletResponse response) {
-
         HttpStatus status = HttpStatus.valueOf(response.getStatus());
         ErrorCode errorCode = status.is4xxClientError() ? ErrorCode.BAD_REQUEST : ErrorCode.INTERNAL_ERROR;
+
         return ResponseEntity
                 .status(status)
                 .body(APIErrorResponse.of(false, errorCode));
     }
+
 }

@@ -1,6 +1,5 @@
 package com.heoyou.getinline.domain;
 
-
 import com.heoyou.getinline.constant.PlaceType;
 import lombok.Data;
 
@@ -17,6 +16,6 @@ public class Place {
     private Integer capacity;
     private String memo;
 
-    private LocalDateTime createAt;
+    private LocalDateTime createdAt;
     private LocalDateTime modifiedAt;
 }

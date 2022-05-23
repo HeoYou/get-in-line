@@ -1,6 +1,5 @@
 package com.heoyou.getinline.domain;
 
-
 import com.heoyou.getinline.constant.EventStatus;
 import lombok.Data;
 
@@ -19,6 +18,6 @@ public class Event {
     private Integer capacity;
     private String memo;
 
-    private LocalDateTime createAt;
+    private LocalDateTime createdAt;
     private LocalDateTime modifiedAt;
 }
